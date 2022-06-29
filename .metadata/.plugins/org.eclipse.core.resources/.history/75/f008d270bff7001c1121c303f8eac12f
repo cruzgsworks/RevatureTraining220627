@@ -1,0 +1,35 @@
+package com.revature;
+
+// imports go here so we can access classes from different packages.
+import com.revature.models.Person;
+import com.revature.models.Pirate;
+
+public class Launcher {
+	public static void main(String args[]) {
+
+		// initialize object 'gerard' of class 'Person'
+
+		// no need to pass arguments in the constructor since it's only the default
+		// no-args constructor
+		Person gerard = new Person();
+
+		// Output return value of sleep method (with passing any string value in the
+		// argument) from Person class.
+		System.out.println(gerard.name + " is " + gerard.gender + " and has a hair color of " + gerard.hairColor);
+		System.out.println(gerard.sleepTalk("Later World"));
+
+		// Initialize a new object of Person class using the all-args constructor
+		Person dane = new Person("Mary Dane", "Pink", "Female");
+		// Output return value of sleep method (with passing any string value in the
+		// argument) from Person class.
+		System.out.println(dane.name + " is " + dane.gender + " and has a hair color of " + dane.hairColor);
+		System.out.println(dane.sleepTalk("Sayonara"));
+		
+		// Initialize a new object of Pirate class
+		Pirate blackBeard = new Pirate();
+		
+		System.out.println(blackBeard.name);
+		System.out.println(blackBeard.dubloon);
+		System.out.println(blackBeard.sleepTalk("argh"));
+	}
+}

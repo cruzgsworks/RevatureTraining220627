@@ -1,0 +1,22 @@
+package com.revature;
+
+import java.io.Console;
+
+public class Launcher {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("--- Common primitives ---");
+		// a int type variable
+		int anInt = 50000000;
+		// a long type variable
+		long aLong = 5000000000000000000L;
+		// concatenate int and long to string and print it in console
+		System.out.println("Int type variable value: " + anInt);
+		System.out.println("Long type variable value: " + aLong);
+		System.out.println("Add long and int: " + (anInt + aLong));
+		
+
+	}
+
+}

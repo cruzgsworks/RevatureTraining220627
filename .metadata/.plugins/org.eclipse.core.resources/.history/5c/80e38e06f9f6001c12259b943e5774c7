@@ -1,0 +1,27 @@
+package com.revature;
+
+public class Launcher {
+	
+	private String helloWorldText;
+	private int aNumber;
+	
+	// A constructor
+	public Launcher() {
+		helloWorldText = "Hello World! \nHello Java! \nI'm excited to Learn!";
+		aNumber = 9000;
+	}
+	
+	// A method
+	public void printText(String myText) {
+		System.out.println(myText);
+	}
+	
+	// The main method 
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Launcher myLauncher = new Launcher();
+		myLauncher.printText(myLauncher.helloWorldText);
+		myLauncher.printText(Integer.toString(myLauncher.aNumber));
+	}
+
+}

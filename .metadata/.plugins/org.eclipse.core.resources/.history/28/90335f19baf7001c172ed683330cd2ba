@@ -1,0 +1,8 @@
+package com.revature.models;
+
+// inheritance in java
+// Pirate class inherits all properties and methods of Person class
+
+public class Pirate extends Person {
+
+}

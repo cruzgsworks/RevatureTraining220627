@@ -1,0 +1,6 @@
+INDEX VERSION 1.131+C:\Users\jigsg\Documents\Revature\STS Workspaces\RevatureTraining220627\.metadata\.plugins\org.eclipse.jdt.core
+3954596497.index
+321142068.index
+1376310953.index
+2380175872.index
+3399467195.index
