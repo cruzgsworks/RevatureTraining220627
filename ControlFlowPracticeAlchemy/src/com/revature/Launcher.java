@@ -6,6 +6,6 @@ public class Launcher {
 	
 	public static void main(String[] args) {
 		Days myDay = new Days();
-		myDay.outputDays();
+		myDay.outputDailyDecision();
 	}
 }

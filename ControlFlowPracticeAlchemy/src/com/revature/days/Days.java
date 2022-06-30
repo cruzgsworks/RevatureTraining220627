@@ -8,7 +8,7 @@ public class Days {
 				"Sunday" };
 	}
 
-	public void outputDays() {
+	public void outputDailyDecision() {
 		for (String days : this.daysOfTheWeek) {
 			System.out.println(days);
 			if (days.charAt(0) == 'T' || days.charAt(0) == 'S') {
