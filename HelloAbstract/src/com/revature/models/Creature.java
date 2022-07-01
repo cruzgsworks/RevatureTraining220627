@@ -2,6 +2,7 @@ package com.revature.models;
 
 // interface contains field and abstract methods
 // to be implemented by classes by taking abstract methods and implement/override by giving them a body.
+// More generic
 public interface Creature {
 
 	// interface variables are public, static, final by default. we don't have to specify them.

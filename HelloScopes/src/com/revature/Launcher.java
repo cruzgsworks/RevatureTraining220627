@@ -22,6 +22,7 @@ public class Launcher {
 	// All objects of the class will have a double dub variable with a value of 5.2
 	double dub = 5.2;
 
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 
 		System.out.println("--- Class & Instance Scoped Variables --- ");
