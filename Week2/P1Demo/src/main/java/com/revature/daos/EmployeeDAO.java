@@ -2,9 +2,13 @@ package com.revature.daos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+
 import com.revature.models.Employee;
+import com.revature.models.Role;
 import com.revature.utils.ConnectionUtil;
 
 // DAO - Data Access Object. Layer of classes that directly talks with the database
@@ -35,7 +39,7 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 			}
 
 		} catch (SQLException e) {
-			System.err.println("insertEmployee() - Connection failed");
+			System.err.println("insertEmployee() - failed");
 			e.printStackTrace();
 		}
 
@@ -43,7 +47,50 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 
 	@Override
 	public ArrayList<Employee> getEmployees() {
-		// TODO Auto-generated method stub
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			// query all employees
+			String sql = "SELECT * FROM employee;";
+			
+			// Statement class from java.sql
+			Statement s = conn.createStatement();
+
+			ResultSet rs = s.executeQuery(sql);
+			
+			
+
+			ArrayList<Employee> employeeList = new ArrayList<Employee>();
+			while (rs.next()) {
+				// System.out.println(rs.getInt("employee_id") + ", " + rs.getString("first_name") + ", " + rs.getString("last_name"));
+				// create Employee model object by using the all-args constructor
+				Employee emp = new Employee(
+						rs.getInt("employee_id"), 
+						rs.getString("first_name"),
+						rs.getString("last_name"), 
+						null);
+
+				// store role_id_fk value
+				int roleFK = rs.getInt("role_id_fk");
+				// System.out.println(roleFK);
+				// create RoleDAO object
+				RoleDAO rDAO = new RoleDAO();
+
+				// get Role using the role_id_fk
+				Role r = rDAO.getRoleById(roleFK);
+
+				// Update role property of emp object
+				emp.setRole(r);
+
+				// Add emp object to arraylist
+				employeeList.add(emp);
+			}
+			
+			// return arraylist
+			return employeeList;
+			
+		} catch (SQLException e) {
+			System.err.println("getEmployees() - failed");
+			e.printStackTrace();
+		}
 		return null;
 	}
 

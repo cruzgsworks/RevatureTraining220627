@@ -1,0 +1,1 @@
+SELECT * FROM krusty_krab.employee e ;

@@ -66,7 +66,5 @@ public class Employee {
 		return "Employee [employee_id=" + employee_id + ", first_name=" + first_name + ", last_name=" + last_name
 				+ ", role=" + role + "]";
 	}
-	
-	
 
 }
