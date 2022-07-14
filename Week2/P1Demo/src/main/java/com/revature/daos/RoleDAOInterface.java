@@ -8,7 +8,7 @@ public interface RoleDAOInterface {
 	Role getRoleById(int id);
 	
 	// updates salary for a given role
-	void updateRoleSalary(String title, int salary);
+	boolean updateRoleSalary(String title, int salary);
 	
 	
 }

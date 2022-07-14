@@ -15,7 +15,9 @@ public interface EmployeeDAOInterface {
 
 	// method to get employee by role title
 
-	void insertEmployee(Employee employee, int role_id);
+	boolean insertEmployee(Employee employee);
+	
+	boolean deleteEmployee(String pathParam);
 
 	ArrayList<Employee> getEmployees();
 

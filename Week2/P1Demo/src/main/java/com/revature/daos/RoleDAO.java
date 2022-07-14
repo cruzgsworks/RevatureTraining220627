@@ -28,15 +28,36 @@ public class RoleDAO implements RoleDAOInterface {
 			}
 
 		} catch (SQLException e) {
-			System.err.println("updateRoleSalary() - failed");
+			System.err.println("getRoleById() - failed");
 			e.printStackTrace();
 		}
 		return null;
 	}
 
 	@Override
-	public void updateRoleSalary(String title, int salary) {
-		// TODO Auto-generated method stub
+	public boolean updateRoleSalary(String title, int salary) {
+		try (Connection conn = ConnectionUtil.getConnection()) {
+
+			String sql = "UPDATE roles SET role_salary = ? WHERE role_title = ?";
+
+			PreparedStatement ps = conn.prepareStatement(sql);
+
+			ps.setInt(1, salary);
+			ps.setString(2, title);
+
+			int updated = ps.executeUpdate();
+
+			if (updated > 0) {
+				return true;
+			} else {
+				return false;
+			}
+
+		} catch (SQLException e) {
+			System.err.println("updateRoleSalary() - failed");
+			e.printStackTrace();
+		}
+		return false;
 
 	}
 

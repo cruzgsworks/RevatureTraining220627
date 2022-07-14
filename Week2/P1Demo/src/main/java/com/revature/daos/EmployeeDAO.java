@@ -16,7 +16,7 @@ import com.revature.utils.ConnectionUtil;
 public class EmployeeDAO implements EmployeeDAOInterface {
 
 	@Override
-	public void insertEmployee(Employee employee, int role_id) {
+	public boolean insertEmployee(Employee employee) {
 
 		// at the top of every DAO method, a connection must be opened
 		try (Connection conn = ConnectionUtil.getConnection()) {
@@ -28,21 +28,25 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 			// Fill in values using PreparedStatement
 			ps.setString(1, employee.getFirst_name());
 			ps.setString(2, employee.getLast_name());
-			ps.setInt(3, role_id);
+			ps.setInt(3, employee.getRole_id_fk());
+
+			System.out.println(ps.toString());
 
 			int insertedRows = ps.executeUpdate();
 			if (insertedRows > 0) {
 				System.out.println("Inserted " + insertedRows + " records");
 				System.out.println(employee.toString());
+				return true;
 			} else {
 				System.out.println("Inserted none");
+				return false;
 			}
 
 		} catch (SQLException e) {
 			System.err.println("insertEmployee() - failed");
 			e.printStackTrace();
 		}
-
+		return false;
 	}
 
 	@Override
@@ -50,22 +54,21 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 		try (Connection conn = ConnectionUtil.getConnection()) {
 			// query all employees
 			String sql = "SELECT * FROM employee;";
-			
+
 			// Statement class from java.sql
 			Statement s = conn.createStatement();
 
 			ResultSet rs = s.executeQuery(sql);
-			
-			
 
 			ArrayList<Employee> employeeList = new ArrayList<Employee>();
 			while (rs.next()) {
-				// System.out.println(rs.getInt("employee_id") + ", " + rs.getString("first_name") + ", " + rs.getString("last_name"));
+				// System.out.println(rs.getInt("employee_id") + ", " +
+				// rs.getString("first_name") + ", " + rs.getString("last_name"));
 				// create Employee model object by using the all-args constructor
 				Employee emp = new Employee(
-						rs.getInt("employee_id"), 
+						rs.getInt("employee_id"),
 						rs.getString("first_name"),
-						rs.getString("last_name"), 
+						rs.getString("last_name"),
 						null);
 
 				// store role_id_fk value
@@ -83,15 +86,40 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 				// Add emp object to arraylist
 				employeeList.add(emp);
 			}
-			
+
 			// return arraylist
 			return employeeList;
-			
+
 		} catch (SQLException e) {
 			System.err.println("getEmployees() - failed");
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public boolean deleteEmployee(String pathParam) {
+		try (Connection conn = ConnectionUtil.getConnection()) {
+
+			String sql = "DELETE FROM employee WHERE employee_id = ?";
+
+			PreparedStatement ps = conn.prepareStatement(sql);
+
+			ps.setInt(1, Integer.parseInt(pathParam));
+
+			int updated = ps.executeUpdate();
+
+			if (updated > 0) {
+				return true;
+			} else {
+				return false;
+			}
+
+		} catch (SQLException e) {
+			System.err.println("deleteEmployee() - failed");
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }

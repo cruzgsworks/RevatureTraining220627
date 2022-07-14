@@ -9,6 +9,8 @@ public class Employee {
 	// Every employee has a role
 	Role role;
 	
+	private int role_id_fk;
+	
 	// no-args constructor
 	public Employee() {
 		super();
@@ -21,12 +23,14 @@ public class Employee {
 		this.last_name = last_name;
 		this.role = role;
 	}
-
-	public Employee(String first_name, String last_name, Role role) {
+	
+	public Employee(int employee_id, String first_name, String last_name, Role role, int role_id_fk) {
 		super();
+		this.employee_id = employee_id;
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.role = role;
+		this.role_id_fk = role_id_fk;
 	}
 
 	public int getEmployee_id() {
@@ -59,6 +63,14 @@ public class Employee {
 
 	public void setRole(Role role) {
 		this.role = role;
+	}
+
+	public int getRole_id_fk() {
+		return role_id_fk;
+	}
+
+	public void setRole_id_fk(int role_id_fk) {
+		this.role_id_fk = role_id_fk;
 	}
 
 	@Override

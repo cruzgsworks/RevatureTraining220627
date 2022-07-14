@@ -26,3 +26,11 @@ SELECT *
 FROM postgres.krusty_krab.employee ;
 
 -- TRUNCATE TABLE postgres.krusty_krab.employee, postgres.krusty_krab.roles RESTART IDENTITY CASCADE;
+
+CREATE TABLE IF NOT EXISTS postgres.krusty_krab.users (
+    user_id serial PRIMARY KEY,
+    username TEXT,
+    password TEXT
+);
+
+INSERT INTO postgres.krusty_krab.users (username, password) VALUES ('user', 'password'); 

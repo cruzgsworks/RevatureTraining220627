@@ -1,0 +1,199 @@
+<!DOCTYPE html> <!-- doctype declaration (not considered an element) - declares what type of doc this is -->
+<html lang="en">
+<!-- root tag, all our HTML goes in here -->
+
+<head>
+    <!--The head is typically metadata, but the <title> tag names our tab -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelloHTML</title>
+</head>
+
+<body>
+    <!-- The actual content of the webpage goes here -->
+
+    <h1>Hello HTML. I am a front end developer now!</h1> <!-- h1 is the largest header tag (h6 is smallest)-->
+
+    <p>I just built my own webpage</p>
+    <p>Despite being on the same line in HTML, we're on separate lines</p>
+    <!-- Recall that <p> elements are BLOCK elements, so they never share the same line -->
+
+    <!-- What if I want inline text elements? You'll probably want <span> -->
+    <span>I am a span.</span> <span>I am another span.</span> <span>we are INLINE elements.</span>
+
+    <br>
+    <!--Line breaks create a line of empty space. Good for quick formatting in a pinch-->
+    <br><br><br>
+
+    <!--divs are your general division tag. They usually nest elements you want grouped-->
+    <div>
+
+        <p>I am a paragraph element in a div</p>
+        <span>I am a span in a div</span> <span>I am another span in a div</span>
+
+    </div>
+
+    <!--Lists---------------------------------------------------------------------->
+
+    <div>
+
+        <h2>Our Favorite Animals</h2>
+
+        <!-- Generated with ol>li*3 to make an ordered list with 3 list items-->
+
+        <ol>
+            <li>Capybara</li>
+            <li>Axoltl</li>
+            <li>Koala</li>
+        </ol>
+
+        <h3>Honorable Mentions</h3>
+
+        <!-- Generated with ul>li*3 to make an UNordered list with 3 list items-->
+
+        <ul>
+            <li>Panda</li>
+            <li>Quokka</li>
+            <li>Chupacabra</li>
+        </ul>
+
+    </div>
+
+    <!--Tables---------------------------------------------------------------------->
+
+    <!-- Generated with table>thead>tr>th*2^^tbody>tr*4>td*2-->
+
+    <table>
+        <!--Start a table with this-->
+        <thead>
+            <!--Start a header row for the table-->
+            <tr>
+                <!--an actual row in the table-->
+                <th>Name</th>
+                <!--Data cells for header rows-->
+                <th>Favorite Jelly</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--The actual data in the table-->
+            <tr>
+                <!--every tr is a new row of data-->
+                <td>Daniel</td>
+                <!--td is a cell of data-->
+                <td>Strawberry</td>
+            </tr>
+            <tr>
+                <td>Genesis</td>
+                <td>Peach</td>
+            </tr>
+            <tr>
+                <td>Elliott</td>
+                <td>Blueberry</td>
+            </tr>
+            <tr>
+                <td>Frederick</td>
+                <td>Orange</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--Forms---------------------------------------------------------------------->
+
+    <br><br><br><br>
+
+    <form>
+        <!-- A form's input elements must be within this form tag -->
+
+        <input type="text" name="username" placeholder="enter your username">
+        <label for="username">Enter your name to Log In</label>
+        <!-- The "for" attribute of the label tag is looking for a "name" attribute to match-->
+        <!-- In other words, it's looking for a unique identifier to attach a label to-->
+
+
+        <br> <!-- Not beautiful but  didn't want these on the same line-->
+
+        <input type="password" name="password" placeholder="enter your password">
+        <label for="password">Enter your password to Log In</label>
+
+        <h2>You Must Choose:</h2>
+
+        <!--Generated with input:radio-->
+        <input type="radio" name="radio" id="radio1">
+        <!--Generated with label[for="radio1"]-->
+        <label for="radio1">I WILL CHOOSE</label>
+
+        <input type="radio" name="radio" id="radio2">
+        <!--Generated with label[for="radio2"]{I WILL NOT CHOOSE}-->
+        <label for="radio2">I WILL NOT CHOOSE</label>
+
+        <!--Radio buttons must use the same name, in order to group them together-->
+
+        <h3>How Do You Feel About Your Choice?</h3>
+
+        <!-- Generated with input:checkbox[name="checkbox"]-->
+        <input type="checkbox" name="checkbox" id="choice1">
+        <label for="choice1">Ecstatic</label>
+
+        <input type="checkbox" name="checkbox" id="choice2">
+        <label for="choice2">Somber</label>
+
+        <input type="checkbox" name="checkbox" id="choice3">
+        <label for="choice3">Pensive</label>
+
+        <input type="checkbox" name="checkbox" id="choice4">
+        <label for="choice4">Indifferent</label>
+
+    </form>
+
+    <!--Article & Summary Semantic Tags------------------------------------------------------------>
+
+    <br><br><br><br>
+
+    <h3>Sophisticated Articles for Sophisticaed Readers:</h3>
+
+    <!-- Generated with article>h3+p -->
+    <article>
+        <h3>Peanut Butter?</h3>
+        <p>JellyJellyJellyJellJellyJellyJellyJellyyJellyJellyJellyJellJellyJellyJellyJellyy</p>
+    </article>
+
+    <article>
+        <h3>Ketchup?</h3>
+        <!--I used lorem20 to generate 20 words-->
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ullam quia officia provident consequatur,
+            iste possimus veniam esse consectetur doloribus.</p>
+    </article>
+
+    <!-- You can highlight things and right click -> format selection to give a better format -->
+
+    <article>
+        <h3>Ooga?</h3>
+        <!--I used lorem150 to generate 150 words-->
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto tenetur, reiciendis officia, assumenda sequi
+            expedita nesciunt deserunt perspiciatis consectetur nobis nulla autem nostrum voluptatum possimus dolor!
+            Quis ad
+            culpa quod odio consequatur cupiditate perferendis sequi quibusdam distinctio dolore autem voluptate totam
+            repudiandae id illo, magni suscipit ab aspernatur minus voluptatibus blanditiis. Quos officiis tenetur ipsam
+            cupiditate exercitationem veritatis architecto voluptate recusandae facilis aperiam iure assumenda
+            voluptatum,
+            aliquam facere sed voluptates sit enim distinctio. Saepe eaque consectetur eos ad. Perspiciatis assumenda
+            quisquam, culpa itaque esse impedit facere magni harum rem mollitia saepe est deserunt vero possimus ipsum
+            maxime vitae. In accusamus modi, quis, cumque architecto laboriosam deserunt et tempora dolorum, praesentium
+            id
+            tempore? Consectetur magnam omnis dolor unde fuga reiciendis earum similique aut, pariatur, dicta optio non
+            exercitationem cum totam, illo doloribus placeat nisi autem vel temporibus eveniet consequuntur. Excepturi
+            error
+            officia eveniet quasi consequuntur cumque? Laborum a omnis dolorum ipsum?</p>
+    </article>
+
+    <details>
+        <summary>Let's see how summaries work... give me a click</summary>
+        <p>I cant believe you would click me how dare you click me I am a strong independent p element and I wish people
+            would treat me a such!!!!!!</p>
+    </details>
+
+
+</body>
+
+</html>
